@@ -3,10 +3,65 @@
 Por favor dirijase a la documentación de los endpoints para conocer el funcionamiento de la API.
 
 ## Documentación General
-Este cumple con las caracteristicas de una API RestFull para una aplicación de listas de favoritos y cumple con los siguientes requisitos.
+Este proyecto cumple con las caracteristicas de una API RestFull para una aplicación de listas de favoritos. Esta aplicación back end fue desarrollada en node.js con express para crear el servidor, bcrypt para la encriptación de las contraseñas, JWT para la generación de tokens de autenticación, mongoose para realizar las consultas a la base de datos, MongoDB como base de datos, mongo atlas como daas para la base de datos MongoDB y la aplicación fue desarrollada en el lenguaje TypeScript. La aplicación también cuenta con test unitarios realizados con las liberias de Jest y Supertest.
+
+Cada campo que recibe la aplicación para ser almacenada en la base de datos cuenta con validaciones para solo almacenar el tipo y formato correcto de los datos entrantes, todas las validaciones fueron hechas en TypeScript de forma manual y no se usaron librerias de validaciones como express-validator o las validaciones que vienen con mongoose por motivos estrictamente educativos para familiarizarme con el lenguaje de TypeScript.
+
+Cada modelo de las colecciones debe cumplir con un tipado de datos estricto y todos los datos son obligatorios, el tipado de los modelos se muestran a continuación.
+
+```javascript
+// Modelo de usuarios
+export interface UserEntry extends Document {
+  id: string
+  email: string
+  password: string
+  lists: listModel[]
+  createdAt: Date | string
+  updatedAt: Date | string
+}
+
+// Modelo de listas
+export interface listModel extends Document {
+  id: string
+  userId: string
+  name: string
+  favs: favsModel[]
+  createdAt: Date | string
+  updatedAt: Date | string
+}
+
+// Modelo de favoritos
+export interface favsModel extends Document {
+  id: string
+  listId: string
+  userId: string
+  title: string
+  description: string
+  url: string
+  createdAt: Date | string
+  updatedAt: Date | string
+}
+```
+
+#### Test
+
+Los resultados de los test realizados a la aplicación muestraron los siguientes resultados.
+
+[![test-assetsment.png](https://i.postimg.cc/3RVLLcBT/test-assetsment.png)](https://postimg.cc/Hc04n3RZ)
 
 ------------
 
+## Ejecución de la aplicación
+
+Para utilizar esta API, puede clonar el repositorio con el comando `git clone https://github.com/edsanol/assetsment-backend-mir.git`, en seguida ejecute el código `npm install` desde la terminal, ubicado en la carpeta en donde clonó este repositorio.
+
+Si desea ejecutar la aplicación en modo de desarrollo utilice la instrucción `npm run dev`, este comando ejecuta la aplicación transpilando directamente el código de TypeScript, si desea ejecutar la aplicación en modo de producción ejecute primeramente la instrucción `npm run tsc`, esta instrucción transpilará todo el código TypeScript a JavaScript y lo guardará en la carpeta *build* y a continuación, podrá ejecutar el comando `npm start` para que se ejecute la aplicación directamente desde JavaScript.
+
+Por ultimo, si desea ejecutar los test puede usar el comando `npm run test` y si desea ejecutar los test y mostrar en la consola los resultados obtenidos y los porcentajes de código testeado ejecute la instrucción `npm run test:coverage`
+
+------------
+
+## Documentación de la funcionalidad de la aplicación
 
 
 ## 1. Usuarios
