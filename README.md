@@ -8,9 +8,9 @@ Este cumple con las caracteristicas de una API RestFull para una aplicación de 
 #### 1 Usuarios
 
 1.1 Creación de usuarios con email y contraseña para poder usar la API RestFull.
-	- El email es obligatorio escribirlo en formato email, ya que cuenta con validación.
-	- La contraseña debe ser de minimo 8 caracteres y debe estar formada por numeros, caracteres numericos, letras minusculas y letras mayusculas o caracteres especiales.
-	- La creación correcta del usuario, crea un token para poder realizar acciones dentro de la API, sin este token, no tiene acceso a ningún endpoint y no podrá ejecutar ninguna petición.
+- El email es obligatorio escribirlo en formato email, ya que cuenta con validación.
+- La contraseña debe ser de minimo 8 caracteres y debe estar formada por numeros, caracteres numericos, letras minusculas y letras mayusculas o caracteres especiales.
+- La creación correcta del usuario, crea un token para poder realizar acciones dentro de la API, sin este token, no tiene acceso a ningún endpoint y no podrá ejecutar ninguna petición.
 
 1.2 Login del usuario con a la API.
 	- El usuario podra iniciar sesión mientras tenga una cuenta, deberá ingresar su usuario y contraseña de forma correcta para que se le sea asignado un token y pueda tener acceso a las peticiones.
