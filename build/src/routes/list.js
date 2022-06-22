@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const list_controller_1 = require("../controllers/list.controller");
+const validate_jwt_1 = require("../middlewares/validate-jwt");
+const router = (0, express_1.Router)();
+router.route('/').post(validate_jwt_1.validateJWT, list_controller_1.createList);
+router.route('/').get(validate_jwt_1.validateJWT, list_controller_1.showListByUser);
+router.route('/:id').get(validate_jwt_1.validateJWT, list_controller_1.getListById);
+router.route('/delete/:id').delete(validate_jwt_1.validateJWT, list_controller_1.destoryList);
+exports.default = router;

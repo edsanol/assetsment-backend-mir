@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const user_controller_1 = require("../controllers/user.controller");
+const validate_jwt_1 = require("../middlewares/validate-jwt");
+const router = (0, express_1.Router)();
+router.route('/register').post(user_controller_1.registerUser);
+router.route('/login').post(user_controller_1.login);
+router.route('/').get(user_controller_1.listUsers);
+router.route('/:id').get(validate_jwt_1.validateJWT, user_controller_1.getUser);
+router.route('/:id').delete(validate_jwt_1.validateJWT, user_controller_1.destroyUser);
+exports.default = router;

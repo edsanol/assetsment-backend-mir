@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const validate_jwt_1 = require("../middlewares/validate-jwt");
+const favs_controller_1 = require("../controllers/favs.controller");
+const router = (0, express_1.Router)();
+router.route('/').post(validate_jwt_1.validateJWT, favs_controller_1.createFavorite);
+router.route('/:listId').get(validate_jwt_1.validateJWT, favs_controller_1.showFavsByList);
+router.route('/search/:id').get(validate_jwt_1.validateJWT, favs_controller_1.getFavsById);
+router.route('/delete/:id').delete(validate_jwt_1.validateJWT, favs_controller_1.destroyFavorite);
+exports.default = router;
