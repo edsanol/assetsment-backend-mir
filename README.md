@@ -334,4 +334,33 @@ El userId con el que se referencia al usuario que ha creado la colección favori
 
 ------------
 
+## Questions
 
+1. Indicate which are the parts of the following url: https://backend.mega-app.com.co:8080/api/articles/search?docid=1020&hl=en#dayone
+
+- https:// **esquema o protocolo**
+- backend **Subdominio**
+- mega-app **Dominio**
+- .com.co **Dominio top level**
+- 8080 **Puerto**
+- /api/articles/search **Path**
+- ? **Query string separator**
+- docid=1020&hl=en **Parametros**
+- #dayone **Fragmento**
+
+2. Define what is a Web API, Restful and what are the statusCode 200-, 400-, 500
+
+- **Web API:** Es un conjunto de rutinas que provee acceso a funciones de un determinado software publicado en un sitio web para brindar la posibilidad de realizar alguna acción o acceder a alguna característica o contenido que el sitio provee.
+- **Restful:** REST es un conjunto de principios que definen la forma en que se deben crear, leer, actualizar y eliminar los datos. Es una arquitectura conocida como cliente-servidor, en la que el servidor y el cliente actúan de forma independiente, siempre y cuando la interfaz sea la misma al procesar una solicitud y una respuesta, que son los elementos esenciales. El servidor expone la API REST y el cliente hace uso de ella.
+- 200: Success
+- 400: Client Error
+- 500: Server Error
+
+3. When we talk about CRUD, what does it mean?
+
+CRUD es un acrónimo que representa las formas de operar con datos almacenados.
+
+- CREATE
+- READ
+- UPDATE
+- DELETE
